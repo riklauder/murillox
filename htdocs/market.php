@@ -107,7 +107,7 @@ if (!isLoggedIn()) {
             <a href="index.php" class="w3-bar-item w3-button"><i class="fa fa-home"></i> HOME</a>
             <a href="#footer" class="w3-bar-item w3-button"> <i class="fa fa-user"></i> Social</a>
             <a href="mailto:support@murillox.com" class="w3-bar-item w3-button w3-hide-small"><i class="fa fa-envelope"></i> Support</a>
-            <a href="" class="w3-bar-item w3-button w3-center"> |<i class="fa fa-deviantart"></i>    <i class="fa fa-compass">     </i><b>* MURILLO X SE *  <i class="fa fa-compass"></i>    <i class="fa fa-deviantart"></i>| ask us about cryptocurrency!</b></a>
+            <a href="portfolio.php" class="w3-bar-item w3-button w3-center"> |<i class="fa fa-deviantart"></i>    <i class="fa fa-compass">     </i><b>* MURILLO X SE *  <i class="fa fa-compass"></i>    <i class="fa fa-deviantart"></i>| ask us about cryptocurrency!</b></a>
             <a href="market.php" class="w3-bar-item w3-button"> <i class="fa fa-line-chart"></i>  Watch The Market - Buy   <i class="fa fa-dollar"></i></a>
             <a href="http://finance.yahoo.com" class="w3-bar-item w3-button w3-hide-small w3-right w3-hover-red">
                 <i class="fa fa-search"></i>
