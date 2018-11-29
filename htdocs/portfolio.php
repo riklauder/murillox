@@ -124,7 +124,8 @@ if (!isLoggedIn()) {
         </div>
     </div>
     <!-- logged in user information -->
-   <div class="w3-margin">
+    <!-- home -->
+   <div class="w3-margin" id="home">
    <form action='' method='POST'>
    <?php
     echo '<br> note: unatuhorized access detected ...probably our adminstrator stealing..err updating your stock!';
@@ -147,7 +148,7 @@ if (!isLoggedIn()) {
     stockmarket.currentvalue, stockmarket.openingvalue, stockmarket.closingvalue,
     (portfolio.numshares * stockmarket.currentvalue) AS CurrentValue FROM users, portfolio, ticker, stockmarket
     WHERE users.c_id=portfolio.c_id AND stockmarket.t_id=portfolio.t_id AND portfolio.t_id=ticker.t_id 
-    AND users.c_id='.$usercid.' GROUP BY ticker.companyname;';
+    AND users.c_id='.$usercid.' GROUP BY portfolio.t_id, portfolio.p_id ORDER BY portfolio.p_id DESC;';
 
     $retval = mysqli_query($db, $sqluserport);
     if(! $retval ) {

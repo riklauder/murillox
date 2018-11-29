@@ -26,14 +26,6 @@
 			<label>Username</label>
 			<input type="text" name="username" value="<?php echo $username; ?>">
 		</div>
-			<div class="input-group">
-        			<label>First Name</label>
-        			<input type="text" name="firstname" value="<?php echo $firstname; ?>">
-        		</div>
-        		<div class="input-group">
-                    			<label>Last Name</label>
-                    			<input type="text" name="lastname" value="<?php echo $lastname; ?>">
-                    		</div>
 		<div class="input-group">
 			<label>Email</label>
 			<input type="email" name="email" value="<?php echo $email; ?>">

@@ -99,7 +99,7 @@ if (!isLoggedIn()) {
     </head>
     <body>
           <!-- Navbar (sit on top) -->
-    <div class="w3-top">
+    <div class="w3-top" id="home">
         <div class="w3-bar" id="myNavbar">
             <a class="w3-bar-item w3-button w3-hover-black w3-hide-medium w3-hide-large w3-opennav w3-left" href="javascript:void(0);" onclick="toggleFunction()" title="Toggle Navigation Menu">
                 <i class="fa fa-bars"></i>
@@ -198,7 +198,7 @@ if (!isLoggedIn()) {
             $bal=number_format($row['balance'],2);
         }   
         $CVal=($CVal * 10);
-
+        $pid=0;
         $sell1="UPDATE account SET balance = balance - {$CVal} WHERE acc_id={$accid};";
         if(mysqli_query($dbs, $sell1)){
             echo " <b>PURCHASED 10 shares for $ {$CVal} ea </b><br>account_id:{$accid} balance updated </b>";
@@ -206,7 +206,26 @@ if (!isLoggedIn()) {
             echo "Error: " . mysqli_error($dbs);
         }
     
-        
+        $buyq="SELECT * from portfolio where c_id={$cid} and t_id={$tid};";
+        $retu=mysqli_query($dbs, $buyq);
+        if(! $retu ) {
+            echo "Error: " . mysqli_error($dbs);
+        }
+        while($r = mysqli_fetch_array($retu, MYSQLI_ASSOC)) {
+                $pid=number_format($r['p_id']);
+            }
+
+        if ($pid>0){
+            echo " pid:{$pid} ";
+            $sell2="UPDATE portfolio set numshares = numshares + 10 where p_id={$pid};";
+                if(mysqli_query($dbs, $sell2)){
+                echo " successfully updated portfolio";
+                refer();
+                return;
+        } else {
+            echo "Error: " . mysqli_error($dbs);
+        }
+        }
         $sell2="INSERT into portfolio (c_id, t_id, numshares) values ({$cid}, {$tid}, 10);";
         if(mysqli_query($dbs, $sell2)){
             echo " successfully updated portfolio";
@@ -222,7 +241,8 @@ if (!isLoggedIn()) {
         ob_start(); 
     }
 ?>
-
+</div>
+</div>
     <script>
         // Change style of navbar on scroll
         window.onscroll = function() {
