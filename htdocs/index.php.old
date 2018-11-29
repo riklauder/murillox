@@ -1,0 +1,54 @@
+<!doctype html>
+<head>
+	<meta charset="utf-8">
+	<title>Arrays Homework</title>
+</head>
+<b>Arrays Homework 4</b><hr>
+
+	<?php
+		echo "Most of the php array features seem easy to use.<br>here are some examples I played with<br>I didn't use any fancy formatting<hr>";
+
+		$odd_numbers = [1,3,5,7,9];
+		$even_numbers = [2,4,6,8,10];
+		$all_numbers = array_merge($odd_numbers, $even_numbers);
+		$dirty_merge_sort = $all_numbers;
+			sort($dirty_merge_sort);
+		echo "Created 2 basic arryas with numbers. Array 1 has odd nubmers<br>";
+		print_r($odd_numbers);
+		echo "<br> Array 2 has even nubmers<br>";
+		print_r($odd_numbers);
+		echo "<br>Performed a 'dirty' merge-sort using merge then sort functions<br>";
+		echo "(Don't tell the algorhithms prof)<br>";
+		print_r($dirty_merge_sort);
+
+		echo "<br><hr>Remember the bars in a treble clef - Every Good Boy Deserves Fudge<br>or splitting a string 'egbdf' into a char array<br>";
+		$treble_bars="egbdf";
+		$treble_bar_notes = str_split($treble_bars);
+		print_r($treble_bars);
+		echo "<br>";
+		print_r($treble_bar_notes);
+
+		echo "<hr><br>next experiment is sorting some dates from string array using a compare function<hr>these are the orignal dates in array:<br>";
+		$dates = ["10 September 2000",
+			"10 September 2020",
+			"9 September 2020",
+			"9 September 2000",
+			"5 April 1999",
+			"20 April 1998",
+		];
+		print_r($dates);
+
+		$compare_function = function($a,$b) {
+ 			$a_timestamp = strtotime($a); // converting string to int php7 
+			$b_timestamp = strtotime($b);
+	 
+			return $a_timestamp <=> $b_timestamp;
+		};
+		echo"<br>Here are the sorted dates: <br>";
+		
+		usort($dates, $compare_function);
+			var_dump($dates);
+		
+			?>
+</body>
+</html > 
